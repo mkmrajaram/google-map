@@ -1,10 +1,11 @@
-import React from "react";
+import LocationProvider from "./context/locationContext";
+import HomePage from "./pages/homePage";
 
 const App = () => {
   return (
-    <div>
-      <h2>Google Map</h2>
-    </div>
+    <LocationProvider>
+      <HomePage />
+    </LocationProvider>
   );
 };
 
