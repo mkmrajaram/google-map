@@ -17,7 +17,9 @@ import {
 const History = () => {
   const [locations, setLocations] = useState<Array<Location>>([]);
   const selectedLocations = useAppSelector(locationSelector);
-  const { setShowHistory } = useContext(locationContext) as LocationContextType;
+  const { setShowHistory, setLocation } = useContext(
+    locationContext
+  ) as LocationContextType;
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -27,6 +29,11 @@ const History = () => {
 
   const handleRemoveLocation = (id: string) => {
     dispatch(removeLocation(id));
+  };
+
+  const handleSelectedLocation = (location: Location) => {
+    setLocation(location);
+    setShowHistory(false);
   };
 
   return (
@@ -50,7 +57,11 @@ const History = () => {
       ) : (
         <ul className={styles.list}>
           {locations.map((location) => (
-            <li key={location.id} className={styles.listItem}>
+            <li
+              key={location.id}
+              className={styles.listItem}
+              onClick={() => handleSelectedLocation(location)}
+            >
               <p className={styles.listItemText}>{location.address}</p>
               <IconButton
                 aria-label="delete"

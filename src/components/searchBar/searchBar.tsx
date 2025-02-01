@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Autocomplete, useJsApiLoader } from "@react-google-maps/api";
 import styles from "./searchBar.module.css";
 import { googleMapsApiKey, libraries } from "../../constants";

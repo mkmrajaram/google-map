@@ -40,7 +40,7 @@ const Map = () => {
   return (
     <GoogleMap
       mapContainerStyle={styles.mapContainerStyle}
-      zoom={16}
+      zoom={13}
       center={markerLocation}
       options={{ fullscreenControl: false, streetViewControl: false }}
     >
